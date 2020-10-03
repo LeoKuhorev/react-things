@@ -5,13 +5,14 @@ import { v4 as uuid } from "uuid";
 export default function AddThing(props) {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
+    e.target.reset();
     data.id = uuid();
     props.setThings((things) => [...things, data]);
   };
 
   return (
-    <form className="text-center border border-light p-2 mb-4 mt-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="text-center border border-light p-2 mb-4 mt-4">
       <p className="h4 mb-4">Add a new item</p>
 
       <input
@@ -30,7 +31,7 @@ export default function AddThing(props) {
 
       <input
         name="price"
-        type="email"
+        type="number"
         className="form-control mb-4"
         placeholder="Item price"
         ref={register({ required: true })}
@@ -40,7 +41,6 @@ export default function AddThing(props) {
       )}
 
       <button
-        onClick={handleSubmit(onSubmit)}
         className="btn btn-info"
         type="submit"
       >

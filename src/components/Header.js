@@ -11,10 +11,12 @@ export default function Header(props) {
         <li className="nav-item">
           <a className="nav-link waves-effect waves-light" href="#!">
             {props.count}
-            <i className="fas fa-envelope"></i>
+            <i className="fas fa-cart-arrow-down"></i>
           </a>
         </li>
       </ul>
     </nav>
   );
 }
+
+

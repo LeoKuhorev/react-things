@@ -9,7 +9,7 @@ export default function ThingList(props) {
 
       <ul className="list-group list-group-flush">
         {props.things.map((thing) => (
-          <Thing thing={thing} key={thing.id} />
+          <Thing thing={thing} key={thing.id} id={thing.id}/>
         ))}
       </ul>
     </div>

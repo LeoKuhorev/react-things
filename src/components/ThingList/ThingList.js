@@ -4,8 +4,8 @@ import AddThing from "./AddThing";
 
 export default function ThingList(props) {
 
-  const deleteItem = (e) => {
-    console.log(e.target);
+  const deleteItem = (id) => {
+    props.setThings(props.things.filter(thing => thing.id !== id))
   }
 
   return (
